@@ -5,6 +5,7 @@ import "fmt"
 var app App
 
 func CreateApp(region, environment string) App {
+	fmt.Println("Start creating app")
 	// var err error
 	// var dbs []*DataStore
 	// var config *AppConfig
