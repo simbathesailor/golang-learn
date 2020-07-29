@@ -5,39 +5,41 @@ Assignment from
 
 ```
 User :
-email_id
-role :
+user_id: primary AUTO_INCREMENT
+email_id : unique
+role : foriegn key to role
 
 Role:
-role_id:
-role_name:
+role_id: primary AUTO_INCREMENT
+role_name: ENUM (admin, user)
 
 <!-- ADMIN
 USER -->
 
 ProjectBoards
-project_id
-project_status
+project_id :  primary AUTO_INCREMENT
+project_status: forign_key  to ProjectStatusBoard
 
 ProjectStatusBoard
-status_id
-status_name
+status_id : primary AUTO_INCREMENT
+status_name: varchar(45) DEFAULT ""
 
 archive, unarchive, create
 
 Task
-task_id
-project_id
-title
-description
-assignee
-assigner
-due_date
-status
 
-task_status_id
-status_id
-status_name
+task_id : primary AUTO_INCREMENT
+project_id: forign key to Project_board
+title : varchar(155)
+description: varchar()
+assignee: foreign_key to user_id in user table
+assigner: foreign_key to user_id in user table
+due_date: data default nill
+status: forign key to status_d in taskstatus_id in Task Status below
+
+Task Status
+status_id : primary AUTO_INCREMENT
+status_name: ENUM(backlog , inprogress, done)
 
 //backlog , inprogress, done
 
