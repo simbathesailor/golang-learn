@@ -6,6 +6,9 @@ var app App
 
 func CreateApp(region, environment string) App {
 	fmt.Println("Start creating app")
+
+	// IntializeDatabase()
+
 	// var err error
 	// var dbs []*DataStore
 	// var config *AppConfig

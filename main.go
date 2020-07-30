@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang-learn-master/packages/trelloboard/cfg/"
 	"log"
 	"net/http"
 )
@@ -14,7 +15,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method is not supported.", http.StatusNotFound)
 		return
 	}
+
 	fmt.Fprintf(w, "Hello!")
+
 }
 
 func main() {
@@ -22,6 +25,7 @@ func main() {
 	t := "Hello World"
 	fmt.Println("t is", t)
 
+	db, err := cfg.IntializeDatabase()
 	// Handle the /hello request get request
 	// func(w http.ResponseWriter, r *http.Request) {
 	// 	fmt.Fprintf(w, "Hello!")
