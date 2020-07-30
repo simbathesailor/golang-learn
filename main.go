@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"golang-learn-master/packages/trelloboard/cfg/"
 	"log"
 	"net/http"
+	"sequoia-backend-assignment/packages/trelloboard/cfg"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -26,6 +26,8 @@ func main() {
 	fmt.Println("t is", t)
 
 	db, err := cfg.IntializeDatabase()
+
+	fmt.Println(db, err)
 	// Handle the /hello request get request
 	// func(w http.ResponseWriter, r *http.Request) {
 	// 	fmt.Fprintf(w, "Hello!")
