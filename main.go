@@ -28,6 +28,10 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("result decoded", result)
 
+	result.RoleID = nil
+
+	db.Create(result)
+
 	if err != nil {
 		http.Error(w, "Not able to read he body !", 404)
 	}
@@ -44,7 +48,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user := cfg.User{ID: 2, Email: "sudhir.chaudhary@sequoia.com", RoleID: 1}
+	c := 1
+	user := cfg.User{ID: 2, Email: "sudhir.chaudhary@sequoia.com", RoleID: &c}
 
 	fmt.Println("The user is : -=>", user)
 
