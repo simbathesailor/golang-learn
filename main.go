@@ -20,9 +20,10 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 
 	defer r.Body.Close()
 	// body, err := ioutil.ReadAll(r.Body)
+
 	// fmt.Println(body)
 
-	var result cfg.User
+	var result *cfg.User
 
 	json.NewDecoder(r.Body).Decode(&result)
 
@@ -37,6 +38,32 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println("Reached the post handle")
+}
+
+func getUsers(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "GET" {
+		http.Error(w, "Not valid route !", 404)
+	}
+
+	defer r.Body.Close()
+	// body, err := ioutil.ReadAll(r.Body)
+
+	// fmt.Println(body)
+
+	var result []cfg.User
+
+	errDb := db.Raw(`
+		SELECT * 
+		FROM user
+	`).Scan(&result).Error
+
+	if errDb != nil {
+		http.Error(w, "Not able to get the results !", 404)
+	}
+
+	json.NewEncoder(w).Encode(result)
+
+	fmt.Println("Reached the get  handle")
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -76,6 +103,7 @@ func main() {
 
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/create-user", createUser)
+	http.HandleFunc("/get-users", getUsers)
 
 	fmt.Printf("Starting server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

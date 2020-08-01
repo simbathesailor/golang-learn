@@ -66,4 +66,8 @@ Assignment from
 - Make sure you keep editing this README file on your forked repository and mark checkboxes above on the things you completed ([Help link](https://www.markdownguide.org/extended-syntax/#task-lists) to mark a checkbox in this README markdown)
 - Once you have finalised, create a Pull Request to this original repository. We'll review it and get back to you with some news.
 
-_In case of any queries, mail to Karthikeyan NG <karthikeyan.ng@sequoia.com> or Indrajeet Kumar <indrajeet@sequoia.com>. We'll revert to you with the clarifications_
+
+
+Steps: 
+
+Run  gin --appPort 8080 --port 3003
