@@ -70,7 +70,10 @@ editTaskId(taskId)
 
 addANewTaskStatus(statusInfo)  
 
-editStatusTaskInfo(statusId)  
+editStatusTaskInfo(statusId) 
+
+deleteTaskStatus(ststusId)
+
 
 
 

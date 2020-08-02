@@ -66,7 +66,7 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Reached the get  handle")
 }
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
+func pingHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/hello" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 	}
@@ -75,14 +75,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	c := 1
-	user := cfg.User{ID: 2, Email: "sudhir.chaudhary@sequoia.com", RoleID: &c}
-
-	fmt.Println("The user is : -=>", user)
-
-	db.Create(user)
-
-	fmt.Fprintf(w, "Hello 3!")
+	fmt.Fprintf(w, "Success")
 
 }
 
@@ -101,7 +94,7 @@ func main() {
 	// 	fmt.Fprintf(w, "Hello!")
 	// }
 
-	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/ping", pingHandler)
 	http.HandleFunc("/create-user", createUser)
 	http.HandleFunc("/get-users", getUsers)
 
