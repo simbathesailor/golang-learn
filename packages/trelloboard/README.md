@@ -45,6 +45,38 @@ status_name: ENUM(backlog , inprogress, done)
 
 ```
 
+```
+List of the APIs:
+
+createUser(userInfo) // post
+
+getAllUsers() get / can be more vatiations here
+
+editUser(useId)  
+
+getAllAdmins() 
+
+getAllProjects() 
+
+getIndividualProjectInfo(projectId) 
+
+editProjectInfo(projectId)  
+
+getAllTasksInProject(projectId)  
+
+getTaskInfo(taskId)  
+
+editTaskId(taskId)  
+
+addANewTaskStatus(statusInfo)  
+
+editStatusTaskInfo(statusId)  
+
+
+
+
+```
+
 # Backend Assignment
 
 ### Build a "headless" simple Trello board application to manage users and their tasks.
