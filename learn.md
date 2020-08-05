@@ -198,14 +198,14 @@ var i interface {} = 1
 Switch i.(type) {
 case int:
 Sadsds
-
-case float64:
+  
+ case float64:
 Asdsads
 case string:
 Sdadsad
 default:
-
-fmt.Print
+  
+ fmt.Print
 
 }
 
@@ -410,4 +410,32 @@ myObj.(WriterCLoser)
 Interface type conversion
 Bwc, ok := wc.(\*BufferWriterCOloser)
 
-The object with having implementation based on a same interface can be converted interchangebly
+The object with having implementation based on a same interface can be converted interchangeably
+
+The method receiver also need to be same when doing the conversion
+
+Var myObj interface{} = NewBufferedWWriteCloser()
+
+Types switches
+
+Var i interface{} = 0
+
+Switch i.(type) {
+Case int:
+asSSD
+CASE STRING:
+SASADsadasdd
+default :
+csacadad
+}
+
+https://youtu.be/YS4e4q9oBaU?t=19241 for specidal behaviour of interface amd methods
+
+Types methods each one of methods regardless of receiver types
+
+Implement interface with concrete value :
+Method set of value, any method set with value as a receiver. And it makes method set is incomplete.
+
+If I am implementing an interface, if i am using a value type, the method that implements the interface have to have the value receivers
+
+If I am implementing an interface, if i am using a pointertype, the method can be there regardless of receiver types
