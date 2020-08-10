@@ -439,3 +439,84 @@ Method set of value, any method set with value as a receiver. And it makes metho
 If I am implementing an interface, if i am using a value type, the method that implements the interface have to have the value receivers
 
 If I am implementing an interface, if i am using a pointertype, the method can be there regardless of receiver types
+
+io.Writer, io.Reader, interface{}
+
+GoRoutines:
+
+func main() {
+go sayHello()
+}
+
+func sayHello() {
+fmt.Println(“sdasd”)
+}
+
+Green thread
+
+Above code will not print the
+
+func main() {
+go sayHello()
+time.Sleep(100\* time.Millisecond)
+}
+
+func sayHello() {
+fmt.Println(“sdasd”)
+}
+
+Above is one of the hack
+
+func main() {
+go func() {
+fmt.Println(“sdasd”)
+
+}()
+time.Sleep(100\* time.Millisecond)
+}
+
+func main() {
+Var msg = “hello”
+go func() {
+fmt.Println(msg)
+
+}()
+msg = “opjo”
+
+time.Sleep(100\* time.Millisecond)
+}
+
+Opjo will get printed
+////////
+
+Var wg = sync.WaitGroup{}
+
+func main() {
+Var msg = “hello”
+wg.Add(1)
+go func() {
+fmt.Println(msg)
+wg.Done()
+
+}()
+msg = “opjo”
+wg.Wait()
+}
+
+Mutex
+
+Var m = sync.RWMutex{}
+
+Import “runtime”
+
+runtime.Gomaxprocs(100)
+
+Best practices:
+Donot create go routines for library
+
+Know how it will end
+Let the consumer of the library set the no of threads
+
+Debugiging
+
+go run -race pathtofile.go
