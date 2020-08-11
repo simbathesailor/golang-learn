@@ -520,3 +520,98 @@ Let the consumer of the library set the no of threads
 Debugiging
 
 go run -race pathtofile.go
+
+Channels
+
+Var wg = sync.WaitGroup()
+Func main() {
+ch: make(chan, int)
+wg.Add(2)
+Go func() {
+i:= <- ch
+fmt.Println(i)
+wg.Done()
+}()
+
+Go func() {
+i:= 42
+Ch <- i
+fmt.Println(i)
+wg.Done()
+}()
+
+}
+wg.Wait()
+
+Concept of receiver anf sender goroutine
+
+Send only and receive only channel
+
+Buffered channel
+
+ch: make(chan int, 50)
+
+ch:= make(chan int, 50)
+
+wg.Add(2)
+
+// Receive only channel
+go func(ch <- chan int) {
+i:= <-ch
+fmt.Println(i)
+wg.Done()
+}(ch)
+
+// Send only channel
+go func(ch chan<- int) {
+Ch <-42
+Ch <-27
+fmt.Println(i)
+wg.Done()
+}(ch)
+
+wg.Wait()
+
+// Make use of for looping strategy
+
+// Receive only channel
+go func(ch <- chan int) {
+i:= <-ch
+for i:= range ch{
+fmt.Println
+}
+
+wg.Done()
+}(ch)
+
+// Send only channel
+go func(ch chan<- int) {
+Ch <-42
+Ch <-27
+fmt.Println(i)
+wg.Done()
+}(ch)
+
+wg.Wait()
+
+In case of channel range the first
+
+for i:= range ch{
+fmt.Println
+}
+
+I is the value itself
+
+You can close the channel with
+close(ch)
+
+You cannot send a message to a closed channel
+
+/// on receiver side
+
+for {
+If i, ok := <-ch;ok {
+fmt.Println(i)
+} else {
+break
+}
